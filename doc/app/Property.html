@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Property - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/property.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="ModelExport.html">ModelExport</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-with_amenities">::with_amenities</a>
+    
+    <li><a href="#method-i-has_amenity-3F">#has_amenity?</a>
+    
+    <li><a href="#method-i-human_amenities">#human_amenities</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Amenity.html">Amenity</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./DashboardController.html">DashboardController</a>
+  
+    <li><a href="./DashboardHelper.html">DashboardHelper</a>
+  
+    <li><a href="./GetDataController.html">GetDataController</a>
+  
+    <li><a href="./GetDataHelper.html">GetDataHelper</a>
+  
+    <li><a href="./ModelExport.html">ModelExport</a>
+  
+    <li><a href="./Property.html">Property</a>
+  
+    <li><a href="./Zombie.html">Zombie</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Property</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-with_amenities" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_amenities</span><span
+            class="method-args">(*args)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this method will determine the bit mask of many amenities</p>
+
+<p>then it will use that bit mask to return all Properties with matching
+amenities if the passed in amenity does not exist it is assigned the value
+of the n+1 amenity which does not exist and therefore returns false OR-ing
+with zero causes undesired results</p>
+          
+
+          
+          <div class="method-source-code" id="with_amenities-source">
+            <pre><span class="ruby-comment"># File app/models/property.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">with_amenities</span>(*<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">mask</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-value">0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">mask</span>, <span class="ruby-identifier">amenity</span><span class="ruby-operator">|</span> 
+    <span class="ruby-identifier">index</span> = <span class="ruby-identifier">@@amenities</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">amenity</span>)
+    <span class="ruby-identifier">mask</span> <span class="ruby-operator">|=</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">index</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">@@amenities</span>.<span class="ruby-identifier">size</span>) 
+  }
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;amenities | ? == amenities&quot;</span>, <span class="ruby-identifier">mask</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- with_amenities-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- with_amenities-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-has_amenity-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_amenity?</span><span
+            class="method-args">(amenity)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>using the list of Amenities determine the index of the maching amenity then
+raise 2 to the power of it’s index … i’m using bitwise shift which is
+faster than 2 ** i</p>
+
+<p>additionally this will need to be refactored to not use [].index but rather
+have a hash … this will be done after some tests are made if the passed in
+amenity does not exist it is assigned the value of the n+1 amenity which
+does not exist and therefore returns false OR-ing with zero causes
+undesired results</p>
+          
+
+          
+          <div class="method-source-code" id="has_amenity-3F-source">
+            <pre><span class="ruby-comment"># File app/models/property.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_amenity?</span>(<span class="ruby-identifier">amenity</span>)
+  <span class="ruby-identifier">index</span> = <span class="ruby-identifier">@@amenities</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">amenity</span>) 
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">amenities</span> <span class="ruby-operator">|</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">index</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">@@amenities</span>.<span class="ruby-identifier">size</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">amenities</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- has_amenity-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- has_amenity-3F-method -->
+
+    
+      <div id="method-i-human_amenities" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">human_amenities</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="human_amenities-source">
+            <pre><span class="ruby-comment"># File app/models/property.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">human_amenities</span>
+  <span class="ruby-identifier">a</span> = []
+  <span class="ruby-identifier">@@amenities</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">e</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span> <span class="ruby-keyword">if</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">amenities</span> <span class="ruby-operator">|</span> <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">i</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">amenities</span>)
+  }
+  <span class="ruby-identifier">a</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- human_amenities-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- human_amenities-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,47 @@
+<div id=Flags></div>
+<div id=Property></div>
+<div id=Amenity></div>
+<div id=List></div>
+<div id=constellation></div>
+<div id=debug></div>
+
+<div id=search>
+  <div class=amenities id="searchcheckboxes1">
+    <div class=amenity><input type="checkbox" value="true" name="swimming_pool" id="search_swimming_pool"><label for="search_swimming_pool">Pool</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="pet_friendly" id="search_pet_friendly"><label for="search_pet_friendly">Allow Pets</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="fitness_center" id="search_fitness_center"><label for="search_fitness_center">Fitness</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="parking_available" id="search_parking_available"><label for="search_parking_available">Parking</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="air_conditioning" id="search_ac"><label        for="search_ac">A/C</label></div>
+  </div class=amenity>
+  <div class=amenity class=amenities id="searchcheckboxes12">
+    <div class=amenity><input type="checkbox" value="true" name="hardwood_floors" id="search_fitness_center_wood"><label for="search_wood">Hardwood Floors</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="walk_in_closet" id="search_closet"><label for="search_closet">Walk-in Closet</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="washer_dryer_in_unit" id="search_washer_dryer_in_unit"><label for="search_washer_dryer_in_unit">Washer/Dryer in Unit</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="washer_dryer_ready" id="search_wdh"><label for="search_wdh">Washer/Dryer Hookups</label></div>
+    <div class=amenity><input type="checkbox" value="true" name="laundry_center" id="search_laundry"><label for="search_laundry">Laundry Room</label></div>
+  </div>
+</div>
+
+
+<script>
+  document.amenities = $.map($('.amenity').find('input[type=checkbox]') , function(val, i) {
+    return val.name
+  });
+  
+  document.bits = 0;
+
+  pretty_url = function(bits) {
+    var a = [];
+    for(var i=0; i<document.amenities.length; i++) {
+      if((bits | (1 << i)) == bits) {
+        a.push(document.amenities[i]);
+      }
+    }
+    return a.join('/');
+  }
+
+ $('.amenity').find('input[type=checkbox]').click(function() { 
+   document.bits ^= Math.pow(2, document.amenities.indexOf(this.name));
+   $('#debug').html(pretty_url(document.bits));
+ });
+</script>

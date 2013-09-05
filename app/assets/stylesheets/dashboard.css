@@ -1,0 +1,59 @@
+body {
+  font-family: 'Arial Black, Gadget, sans-serif';
+  font-size: x-small;
+  background-color: #fefefe;
+}
+.table {
+  background: #fff;
+  border-top: 1px solid #ccc;
+  padding: 2em;
+  border-top-left-radius:2em;
+  border-left: 1px solid #ccc;
+  box-shadow: -2px -2px 5px #888888;
+  float: left;
+  margin: 10px;
+}
+.table td,
+.table th {
+  padding: 3px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+
+#List {
+  position: absolute;
+  left: 3px;  
+  bottom: 3px;
+  float: right;
+}
+
+div.insert {
+  float:right;
+  height: 20px;
+  width: 100px;
+  border: solid 1px #aaa;
+  padding 1px
+}
+span.placeholderValue {
+  position: absolute !important;
+  margin: 3px 0 0 5px;
+  color: #d1d1d1;
+  z-index: 9;
+}
+
+
+#debug {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+}
+
+div.eip {
+  cursor: pointer; 
+}
+
+
+div.amenities {
+  float: left; 
+}

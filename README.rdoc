@@ -1,0 +1,44 @@
+
+
+Sat Apr  6 21:17:18 CDT 2013
+
+No idea why I haven't started a read me inside this project
+
+so I have a get_data controller 
+
+that essentially gives back what I ask for
+using a key value pair
+
+
+
+
+so here it is:
+
+
+HTML:
+  create new div element with id=YOURKEY
+
+CONTROLLERS:
+
+  add to the list of commands YOURKEY => some *printable (HTML friendly) output/markup
+
+  def index 
+    commands = {
+      'Amenity' => Rails.cache.fetch('Amenity'),
+      'Property' => Rails.cache.fetch('Property'),
+      'constellation' => Rails.cache.fetch('constellation') { Property.all.map(&:amenities).inspect }
+    }
+
+JAVACRIPT: 
+
+
+  new Monitor({
+    container: 'constellation',
+    url: '/dashboard/get_data?data=constellation',
+    interval: 10000,
+    //callback: function() { init(); calc(); }
+  });
+
+
+
+There appears to be another that is based on click events ... 

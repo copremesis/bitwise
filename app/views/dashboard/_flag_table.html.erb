@@ -1,0 +1,20 @@
+<table cellspacing=0 class='table'>
+  <thead>
+    <tr> 
+      <th> setting </th>
+      <% Amenity.all.each do |row| %>
+        <th><%= row.amenity %></th> 
+      <% end %>
+      <th> bitflags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% properties.each_with_index do |property, i| -%>
+    <tr class="flags"> 
+      <td class="pid"><%=property.property_id%></td>
+      <%= flags_to_controls(property.amenities) %>
+      <td class=result></td>
+    </tr>
+    <% end -%>
+  </tbody>
+</table>
