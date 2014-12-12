@@ -1,8 +1,10 @@
 
 
-Amenity.destroy_all
-(0..24).map{|i| 
-  Amenity.create(:amenity => i) 
+->() {
+  Amenity.destroy_all
+  (0..24).map{|i| 
+    Amenity.create(:amenity => i) 
+  }
 }
 
 
@@ -173,7 +175,7 @@ study = {
 ["Custom Home Amenity", "Custom Community Amenity", "Custom Pet Policy", "Cats", "Small Dogs (under 25 lbs.)", "Pets Negotiable", "Basketball Court", "Business Center", "Clubhouse", "Doorman", "Elevator(s)", "Fitness Center", "Controlled Gate Access", "Whirlpool/Spa/Sauna", "Laundry Facility", "Playground", "Billiard/Pool Tables", "Swimming Pool(s)", "Tennis Court(s)", "Parking", "Small Building", "Vintage Building", "Cable Ready", "Ceiling Fan(s)", "Extra Storage", "Fireplace", "Attached or Detached Garage", "Carport", "High Speed Internet Access", "Oval Soaking Tubs", "Patio or Balcony", "Washer/Dryer Hookup", "Washer/Dryer in Unit", "Air Conditioning", "Dishwasher", "Eat in Kitchen or Dining Room", "Hardwood Floors", "Loft Layout", "Yard", "Active Adult", "Convenient", "Short-term Available", "Garage", "Alarm System", "Built In Bookshelves", "Free-Weights", "Microwave", "Racquetball Court(s)", "Spacious Closet(s)", "Storage Spaces", "Sunroom", "Tiled Entries", "Vaulted Ceilings", "Hi Speed Internet/Wi-Fi", "Declawing Required", "Large Dogs (over 25 lbs.)", "Pet Interview Required", "Spayed/Neutered", "No Pets Allowed", "Military", "Wheelchair Access", "Furnished"].each {|amen|
     Amenity.create(:amenity => amen)
   }
-}#[]
+}[]
 
 
 #["Pool", "Allow Pets", "Fitness", "Parking", "A/C", "Hardwood Floors", "Walk-in Closet", "Washer/Dryer in Unit", "Washer/Dryer Hookups", "Laundry Room"].each {|amen|
@@ -186,3 +188,27 @@ study = {
 
 
 %w(66.249.74.189 118.244.213.59 222.128.198.6 42.96.162.225 106.3.38.178 173.244.161.132 178.216.56.150 193.27.243.138 202.99.97.10 50.115.164.181 216.54.231.78 106.3.38.178 173.244.161.132 178.216.56.150 193.27.243.138 202.99.97.10 31.3.245.178 50.115.164.181 67.205.67.135 114.80.202.30 115.187.63.105 183.80.108.35 77.73.8.125 114.80.224.90 219.235.126.174 37.153.209.2 67.18.178.210)
+
+
+
+
+->() {
+  Amenity.destroy_all
+  %w(watchlist readytohire interview offer).each {|amen|
+    Amenity.create(:amenity => amen)
+  }
+}
+
+->() {
+  Property.destroy_all
+  10.times {
+  Property.create(:property_id => rand(1<<20), :amenities => 0 )
+  }
+}
+
+  
+  
+
+
+
+

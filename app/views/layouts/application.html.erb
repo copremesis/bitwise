@@ -2,10 +2,15 @@
 <html>
 <head>
   <title>Bitwise</title>
-<script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "dashboard" %>
+
+  <%#= javascript_include_tag "application" %>
+  <%#= javascript_include_tag "dashboard" %>
+  <%= javascript_include_tag :dashboard %>
+  <%= javascript_include_tag :monitor %>
+  <%= javascript_include_tag :edit_in_place %>
   <%= csrf_meta_tags %>
 </head>
 <body>

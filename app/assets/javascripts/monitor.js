@@ -38,7 +38,7 @@ $(document).ready(function() {
     url: '/get_data',
     interval: 10000,     
     callback: function() {
-      $('#Amenity tr:last').after('<tr><td><div class=eip><b>New Amenity</b></div></td></tr>'); 
+      $('#Amenity tr:last').after('<tr><td><div class=eip><b>New Flag</b></div></td></tr>'); 
       $('div.eip').click(function() {
         $.get('/dashboard/edit_in_place', '', function(response) {
           //console.log(this,response);
@@ -52,9 +52,9 @@ $(document).ready(function() {
 
 
 
-//  $('#Amenity').hide();
-//  $('#Property').hide();
-//  $('#search').hide();
+  //$('#Amenity').hide();
+  //$('#Property').hide();
+  //$('#search').hide();
 
 
 
